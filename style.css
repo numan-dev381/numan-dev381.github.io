@@ -80,13 +80,15 @@ header{
 .hero{
     width:90%;
     max-width:1200px;
-    margin:auto;
+    margin:0 auto;
     min-height:100vh;
 
     display:flex;
     justify-content:space-between;
     align-items:center;
     gap:60px;
+
+    padding-top:120px;
 }
 
 .hero-content{
