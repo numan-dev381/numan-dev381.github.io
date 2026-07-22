@@ -306,3 +306,58 @@ header{
 }
 
 }
+/* ================================
+   Skills Section
+================================ */
+
+.skills{
+
+    width:90%;
+    max-width:1200px;
+    margin:100px auto;
+
+}
+
+.skills-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+
+}
+
+.skill-card{
+
+    background:#1e293b;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.3s;
+
+    cursor:pointer;
+
+}
+
+.skill-card:hover{
+
+    background:#3b82f6;
+
+    transform:translateY(-10px);
+
+    color:white;
+
+    box-shadow:0 15px 35px rgba(59,130,246,.35);
+
+}
