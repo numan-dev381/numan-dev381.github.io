@@ -137,7 +137,6 @@ header{
 }
 
 .btn{
-.btn{
 
     display:inline-block;
 
@@ -496,7 +495,11 @@ header{
 
 .projects-footer{
 
-    text-align:center;
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
 
     margin-top:60px;
 
