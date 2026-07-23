@@ -604,3 +604,36 @@ header{
     line-height:1.8;
 
 }
+/* ==========================================
+   BACK TO HOME
+========================================== */
+
+.back-home{
+
+    width:90%;
+
+    max-width:1200px;
+
+    margin:120px auto 0;
+
+}
+
+.back-home a{
+
+    color:#3b82f6;
+
+    text-decoration:none;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.back-home a:hover{
+
+    color:white;
+
+}
