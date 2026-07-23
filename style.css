@@ -365,3 +365,130 @@ header{
     box-shadow:0 15px 35px rgba(59,130,246,.35);
 
 }
+/* ==========================================
+   FEATURED PROJECTS
+========================================== */
+
+.projects{
+
+    width:90%;
+    max-width:1200px;
+    margin:120px auto;
+
+}
+
+.section-subtitle{
+
+    text-align:center;
+    color:#94a3b8;
+    margin-top:15px;
+    font-size:18px;
+    line-height:1.8;
+
+}
+
+.projects-container{
+
+    margin-top:60px;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+
+    gap:35px;
+
+}
+
+.project-card{
+
+    background:#1e293b;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.35s ease;
+
+}
+
+.project-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 15px 40px rgba(59,130,246,.25);
+
+}
+
+.project-title{
+
+    color:#ffffff;
+
+    font-size:26px;
+
+    margin-bottom:15px;
+
+}
+
+.project-description{
+
+    color:#cbd5e1;
+
+    line-height:1.8;
+
+    margin-bottom:25px;
+
+}
+
+.project-tech{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-bottom:25px;
+
+}
+
+.tech{
+
+    background:#0f172a;
+
+    color:#3b82f6;
+
+    padding:8px 14px;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+.project-link{
+
+    color:#3b82f6;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+.project-link:hover{
+
+    color:white;
+
+}
+
+.projects-footer{
+
+    text-align:center;
+
+    margin-top:60px;
+
+}
