@@ -6,12 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>My Projects | Numan Nasir</title>
+    <title>Projects | Numan Nasir</title>
 
     <link rel="stylesheet" href="style.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
 
 </head>
 
@@ -27,15 +24,7 @@
 
         <ul class="nav-links">
 
-            <li><a href="index.html">Home</a></li>
-
-            <li><a href="index.html#about">About</a></li>
-
-            <li><a href="index.html#skills">Skills</a></li>
-
-            <li><a href="projects.html">Projects</a></li>
-
-            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="index.html">← Back to Portfolio</a></li>
 
         </ul>
 
@@ -43,62 +32,50 @@
 
 </header>
 
-<main>
+<main class="projects-page">
 
-<div class="back-home">
+    <section class="projects-header">
 
-    <a href="index.html">← Back to Home</a>
+        <h1>My Projects</h1>
 
-</div>
-
-<section class="projects-page">
-
-    <div class="section-title">
-
-        <h2>My Projects</h2>
-
-        <p class="section-subtitle">
-
-            Explore my software engineering, web development,
-            database and university projects.
-
+        <p>
+            Browse my university and personal software engineering projects.
         </p>
 
-    </div>
+    </section>
 
-    <div class="projects-topbar">
+    <section class="projects-toolbar">
 
         <input
             type="text"
-            placeholder="Search projects..."
-            class="search-box">
+            id="searchProject"
+            placeholder="Search projects...">
 
-        <button class="btn primary-btn">
-
+        <button id="addProjectBtn">
             ➕ Add Project
-
         </button>
 
-    </div>
+    </section>
 
-    <div class="no-projects">
+    <section id="projectsList" class="projects-list">
 
-        <h3>📂 No Projects Available</h3>
+        <div class="empty-state">
 
-        <p>
+            <h2>No Projects Available</h2>
 
-            Your projects will appear here after they are added.
+            <p>
+                Click <strong>Add Project</strong> to create your first project.
+            </p>
 
-        </p>
+        </div>
 
-    </div>
-
-</section>
+    </section>
 
 </main>
 
 <script src="script.js"></script>
 <script type="module" src="app.js"></script>
+
 </body>
 
 </html>
