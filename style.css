@@ -785,11 +785,13 @@ header{
 
     border-radius:20px;
 
-    padding:35px;
+    padding:35px 45px 35px 35px;
 
     position:relative;
 
     animation:popup .35s ease;
+
+    scrollbar-gutter:stable;
 
 }
 
@@ -925,7 +927,17 @@ header{
 }
 #projectForm input[type="file"]{
 
-    padding:10px;
+    width:100%;
+
+    background:#0f172a;
+
+    color:#cbd5e1;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:10px;
+
+    padding:12px;
 
     cursor:pointer;
 
@@ -947,5 +959,32 @@ header{
 .modal-content::-webkit-scrollbar-track{
 
     background:#0f172a;
+
+}
+.modal-content::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+.modal-content::-webkit-scrollbar-track{
+
+    background:#0f172a;
+
+    border-radius:10px;
+
+}
+
+.modal-content::-webkit-scrollbar-thumb{
+
+    background:#3b82f6;
+
+    border-radius:10px;
+
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover{
+
+    background:#2563eb;
 
 }
