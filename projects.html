@@ -80,27 +80,83 @@
 
         <h2>Add New Project</h2>
 
-        <form id="projectForm">
+<form id="projectForm">
 
-            <input type="text" placeholder="Project Name" required>
+    <label>Project Name *</label>
+    <input type="text" id="projectName" required>
 
-            <textarea placeholder="Project Description" rows="4" required></textarea>
+    <label>Description *</label>
+    <textarea id="projectDescription" rows="4" required></textarea>
 
-            <input type="text" placeholder="Semester">
+    <label>Semester</label>
+    <select id="projectSemester">
 
-            <input type="text" placeholder="Technologies Used">
+        <option>Semester 1</option>
+        <option>Semester 2</option>
+        <option>Semester 3</option>
+        <option>Semester 4</option>
+        <option selected>Semester 5</option>
+        <option>Semester 6</option>
+        <option>Semester 7</option>
+        <option>Semester 8</option>
 
-            <input type="url" placeholder="GitHub Repository">
+    </select>
 
-            <input type="url" placeholder="Live Website">
+    <label>Technologies Used</label>
+    <input type="text"
+           id="projectTech"
+           placeholder="HTML, CSS, JavaScript">
 
-            <button type="submit" class="btn primary-btn">
+    <label>GitHub Repository</label>
+    <input type="url" id="projectGithub">
 
-                Save Project
+    <label>Live Website</label>
+    <input type="url" id="projectWebsite">
 
-            </button>
+    <label>Project Image</label>
+    <input type="file"
+           id="projectImage"
+           accept="image/*">
 
-        </form>
+    <label>PDF Report</label>
+    <input type="file"
+           id="projectPdf"
+           accept=".pdf">
+
+    <label>Presentation</label>
+    <input type="file"
+           id="projectPresentation"
+           accept=".pdf,.ppt,.pptx">
+
+    <label>Source Code (ZIP)</label>
+    <input type="file"
+           id="projectSource"
+           accept=".zip">
+
+    <label>Demo Video Link</label>
+    <input type="url"
+           id="projectVideo">
+
+    <div class="form-buttons">
+
+        <button type="button"
+                id="cancelProject"
+                class="btn secondary-btn">
+
+            Cancel
+
+        </button>
+
+        <button type="submit"
+                class="btn primary-btn">
+
+            Save Project
+
+        </button>
+
+    </div>
+
+</form>
 
     </div>
 
