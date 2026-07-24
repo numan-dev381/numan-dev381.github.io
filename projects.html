@@ -82,82 +82,86 @@
 
 <form id="projectForm">
 
-    <label>Project Name *</label>
-    <input type="text" id="projectName" required>
+    <h3>Basic Information</h3>
 
-    <label>Description *</label>
-    <textarea id="projectDescription" rows="4" required></textarea>
+    <label>Project Name</label>
+    <input type="text" placeholder="Enter project name" required>
+
+    <label>Description</label>
+    <textarea rows="5" placeholder="Describe your project..." required></textarea>
+
+    <label>Category</label>
+    <select>
+        <option>Web Development</option>
+        <option>Desktop Application</option>
+        <option>Mobile Application</option>
+        <option>Database</option>
+        <option>Networking</option>
+        <option>AI / Machine Learning</option>
+        <option>Final Year Project</option>
+        <option>Other</option>
+    </select>
 
     <label>Semester</label>
-    <select id="projectSemester">
-
+    <select>
         <option>Semester 1</option>
         <option>Semester 2</option>
         <option>Semester 3</option>
         <option>Semester 4</option>
-        <option selected>Semester 5</option>
+        <option>Semester 5</option>
         <option>Semester 6</option>
         <option>Semester 7</option>
         <option>Semester 8</option>
-
+        <option>Personal Project</option>
     </select>
 
     <label>Technologies Used</label>
-    <input type="text"
-           id="projectTech"
-           placeholder="HTML, CSS, JavaScript">
+    <input type="text" placeholder="HTML, CSS, JavaScript">
+
+    <hr>
+
+    <h3>Project Links</h3>
 
     <label>GitHub Repository</label>
-    <input type="url" id="projectGithub">
+    <input type="url" placeholder="https://github.com/...">
 
     <label>Live Website</label>
-    <input type="url" id="projectWebsite">
+    <input type="url" placeholder="https://">
+
+    <label>Demo Video</label>
+    <input type="url" placeholder="YouTube link">
+
+    <hr>
+
+    <h3>Project Files</h3>
 
     <label>Project Image</label>
-    <input type="file"
-           id="projectImage"
-           accept="image/*">
+    <input type="file" accept="image/*">
 
     <label>PDF Report</label>
-    <input type="file"
-           id="projectPdf"
-           accept=".pdf">
+    <input type="file" accept=".pdf">
 
     <label>Presentation</label>
-    <input type="file"
-           id="projectPresentation"
-           accept=".pdf,.ppt,.pptx">
+    <input type="file" accept=".ppt,.pptx">
 
     <label>Source Code (ZIP)</label>
-    <input type="file"
-           id="projectSource"
-           accept=".zip">
+    <input type="file" accept=".zip">
 
-    <label>Demo Video Link</label>
-    <input type="url"
-           id="projectVideo">
+    <hr>
 
     <div class="form-buttons">
 
-        <button type="button"
-                id="cancelProject"
-                class="btn secondary-btn">
-
+        <button type="button" class="secondary-btn" id="cancelBtn">
             Cancel
-
         </button>
 
-        <button type="submit"
-                class="btn primary-btn">
-
+        <button type="submit" class="primary-btn">
             Save Project
-
         </button>
 
     </div>
 
 </form>
-
     </div>
 
 </div>
