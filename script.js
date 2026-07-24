@@ -1,6 +1,11 @@
-// ==========================================
-// Portfolio Management System
-// Author: Numan Nasir
-// ==========================================
+const addProjectBtn = document.getElementById("addProjectBtn");
 
-console.log("Portfolio Management System Loaded Successfully");
+if (addProjectBtn) {
+
+    addProjectBtn.addEventListener("click", function () {
+
+        alert("Project form will be added in the next step.");
+
+    });
+
+}
