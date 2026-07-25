@@ -135,8 +135,39 @@
 
     <h3>Project Files</h3>
 
-    <label>Project Image</label>
-    <input type="file" accept="image/*">
+<label>Project Image</label>
+
+<div class="upload-box">
+
+    <input
+        type="file"
+        id="projectImage"
+        accept="image/*"
+        hidden>
+
+    <label for="projectImage" class="upload-area">
+
+        <div class="upload-icon">
+            📤
+        </div>
+
+        <div class="upload-text">
+
+            <strong>Upload Project Image</strong>
+
+            <span>Click to browse</span>
+
+        </div>
+
+    </label>
+
+    <div class="selected-file" id="imageFileName">
+
+        No file selected
+
+    </div>
+
+</div>
 
     <label>PDF Report</label>
     <input type="file" accept=".pdf">
