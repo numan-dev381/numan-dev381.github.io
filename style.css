@@ -1089,18 +1089,19 @@ header{
 
 .upload-text strong{
 
-    font-size:18px;
-    color:white;
+    font-size:16px;
 
 }
 
 .upload-text span{
 
     color:#94a3b8;
-    margin-top:5px;
+
+    font-size:13px;
+
+    margin-top:2px;
 
 }
-
 .selected-file{
 
     background:#0f172a;
