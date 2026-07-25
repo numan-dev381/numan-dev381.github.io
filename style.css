@@ -1063,8 +1063,8 @@ header{
 
 .upload-icon{
 
-    width:60px;
-    height:60px;
+    width:46px;
+    height:46px;
 
     border-radius:50%;
 
@@ -1074,7 +1074,7 @@ header{
     justify-content:center;
     align-items:center;
 
-    font-size:28px;
+    font-size:22px;
 
     color:white;
 
