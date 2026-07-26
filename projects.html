@@ -169,14 +169,55 @@
 
 </div>
 
-    <label>PDF Report</label>
-    <input type="file" accept=".pdf">
+<h3 class="files-title">Project Files</h3>
 
-    <label>Presentation</label>
-    <input type="file" accept=".ppt,.pptx">
+<div class="file-upload-card">
 
-    <label>Source Code (ZIP)</label>
-    <input type="file" accept=".zip">
+    <label>📄 PDF Report</label>
+
+    <input type="file" id="pdfFile" hidden>
+
+    <label for="pdfFile" class="upload-button">
+        Upload PDF
+    </label>
+
+    <span id="pdfFileName">
+        No file selected
+    </span>
+
+</div>
+
+<div class="file-upload-card">
+
+    <label>🎞 Presentation</label>
+
+    <input type="file" id="pptFile" hidden>
+
+    <label for="pptFile" class="upload-button">
+        Upload PPT
+    </label>
+
+    <span id="pptFileName">
+        No file selected
+    </span>
+
+</div>
+
+<div class="file-upload-card">
+
+    <label>🗜 Source Code (ZIP)</label>
+
+    <input type="file" id="zipFile" hidden>
+
+    <label for="zipFile" class="upload-button">
+        Upload ZIP
+    </label>
+
+    <span id="zipFileName">
+        No file selected
+    </span>
+
+</div>
 
     <hr>
 
