@@ -1,35 +1,80 @@
-// ================================
-// Project Image Upload
-// ================================
+// =========================================
+// File Upload UI
+// =========================================
 
-const projectImage = document.getElementById("projectImage");
-const imageFileName = document.getElementById("imageFileName");
+function formatFileSize(bytes) {
 
-if (projectImage) {
+    if (bytes < 1024) return bytes + " B";
 
-    projectImage.addEventListener("change", function () {
+    if (bytes < 1024 * 1024)
+        return (bytes / 1024).toFixed(1) + " KB";
 
-        if (this.files.length > 0) {
+    return (bytes / (1024 * 1024)).toFixed(1) + " MB";
 
-            imageFileName.innerHTML = `
-                📄 ${this.files[0].name}
-                <button id="removeImage" class="remove-file">
-                    Remove
-                </button>
-            `;
+}
 
-            document
-                .getElementById("removeImage")
-                .addEventListener("click", function () {
+function setupFileUpload(inputId, displayId) {
 
-                    projectImage.value = "";
+    const input = document.getElementById(inputId);
+    const display = document.getElementById(displayId);
 
-                    imageFileName.textContent = "No file selected";
+    if (!input || !display) return;
 
-                });
+    input.addEventListener("change", function () {
+
+        if (!this.files.length) {
+
+            display.innerHTML = "No file selected";
+            return;
 
         }
+
+        const file = this.files[0];
+
+        display.innerHTML = `
+            <div class="file-preview">
+
+                <div class="file-details">
+
+                    <div class="file-name">${file.name}</div>
+
+                    <div class="file-size">${formatFileSize(file.size)}</div>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="remove-file"
+                    title="Remove File">
+
+                    ×
+
+                </button>
+
+            </div>
+        `;
+
+        display
+            .querySelector(".remove-file")
+            .addEventListener("click", function () {
+
+                input.value = "";
+                display.innerHTML = "No file selected";
+
+            });
 
     });
 
 }
+
+// Image
+setupFileUpload("projectImage", "imageFileName");
+
+// PDF
+setupFileUpload("pdfFile", "pdfFileName");
+
+// PowerPoint
+setupFileUpload("pptFile", "pptFileName");
+
+// ZIP
+setupFileUpload("zipFile", "zipFileName");
