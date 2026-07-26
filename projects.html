@@ -133,92 +133,172 @@
 
     <hr>
 
-    <h3>Project Files</h3>
+<h3>Project Files</h3>
 
-<label>Project Image</label>
+<div class="files-container">
 
-<div class="upload-box">
+    <!-- Project Image -->
+    <div class="file-card">
 
-    <input
-        type="file"
-        id="projectImage"
-        accept="image/*"
-        hidden>
+        <div class="file-info">
 
-    <label for="projectImage" class="upload-area">
+            <div class="file-icon image-icon">🖼</div>
 
-        <div class="upload-icon">
-            📤
-        </div>
+            <div>
 
-        <div class="upload-text">
+                <h4>Project Image</h4>
 
-            <strong>Upload Project Image</strong>
+                <p>Upload project thumbnail or screenshot</p>
 
-            <span>Click to browse</span>
+            </div>
 
         </div>
 
-    </label>
+        <div class="file-actions">
 
-    <div class="selected-file" id="imageFileName">
+            <input
+                type="file"
+                id="projectImage"
+                accept="image/*"
+                hidden>
 
-        No file selected
+            <label for="projectImage" class="upload-btn">
+                Upload
+            </label>
+
+            <div class="file-name" id="imageFileName">
+                No file selected
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- PDF -->
+
+    <div class="file-card">
+
+        <div class="file-info">
+
+            <div class="file-icon pdf-icon">📄</div>
+
+            <div>
+
+                <h4>PDF Report</h4>
+
+                <p>Upload project documentation</p>
+
+            </div>
+
+        </div>
+
+        <div class="file-actions">
+
+            <input
+                type="file"
+                id="pdfFile"
+                accept=".pdf"
+                hidden>
+
+            <label for="pdfFile" class="upload-btn">
+                Upload
+            </label>
+
+            <div class="file-name" id="pdfFileName">
+
+                No file selected
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Presentation -->
+
+    <div class="file-card">
+
+        <div class="file-info">
+
+            <div class="file-icon ppt-icon">📊</div>
+
+            <div>
+
+                <h4>Presentation</h4>
+
+                <p>Upload PowerPoint presentation</p>
+
+            </div>
+
+        </div>
+
+        <div class="file-actions">
+
+            <input
+                type="file"
+                id="pptFile"
+                accept=".ppt,.pptx"
+                hidden>
+
+            <label for="pptFile" class="upload-btn">
+
+                Upload
+
+            </label>
+
+            <div class="file-name" id="pptFileName">
+
+                No file selected
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ZIP -->
+
+    <div class="file-card">
+
+        <div class="file-info">
+
+            <div class="file-icon zip-icon">📦</div>
+
+            <div>
+
+                <h4>Source Code (ZIP)</h4>
+
+                <p>Upload complete source code</p>
+
+            </div>
+
+        </div>
+
+        <div class="file-actions">
+
+            <input
+                type="file"
+                id="zipFile"
+                accept=".zip,.rar"
+                hidden>
+
+            <label for="zipFile" class="upload-btn">
+
+                Upload
+
+            </label>
+
+            <div class="file-name" id="zipFileName">
+
+                No file selected
+
+            </div>
+
+        </div>
 
     </div>
 
 </div>
-
-<h3 class="files-title">Project Files</h3>
-
-<div class="file-upload-card">
-
-    <label>📄 PDF Report</label>
-
-    <input type="file" id="pdfFile" hidden>
-
-    <label for="pdfFile" class="upload-button">
-        Upload PDF
-    </label>
-
-    <span id="pdfFileName">
-        No file selected
-    </span>
-
-</div>
-
-<div class="file-upload-card">
-
-    <label>🎞 Presentation</label>
-
-    <input type="file" id="pptFile" hidden>
-
-    <label for="pptFile" class="upload-button">
-        Upload PPT
-    </label>
-
-    <span id="pptFileName">
-        No file selected
-    </span>
-
-</div>
-
-<div class="file-upload-card">
-
-    <label>🗜 Source Code (ZIP)</label>
-
-    <input type="file" id="zipFile" hidden>
-
-    <label for="zipFile" class="upload-button">
-        Upload ZIP
-    </label>
-
-    <span id="zipFileName">
-        No file selected
-    </span>
-
-</div>
-
     <hr>
 
 <div class="form-buttons">
