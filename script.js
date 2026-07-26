@@ -3,14 +3,17 @@
 // =========================================
 
 function formatFileSize(bytes) {
+    if (bytes < 1024) return `${bytes} B`;
+    if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
+    return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+}
 
-    if (bytes < 1024) return bytes + " B";
-
-    if (bytes < 1024 * 1024)
-        return (bytes / 1024).toFixed(1) + " KB";
-
-    return (bytes / (1024 * 1024)).toFixed(1) + " MB";
-
+function resetPreview(display) {
+    display.innerHTML = `
+        <span class="empty-file">
+            No file selected
+        </span>
+    `;
 }
 
 function setupFileUpload(inputId, displayId) {
@@ -20,31 +23,36 @@ function setupFileUpload(inputId, displayId) {
 
     if (!input || !display) return;
 
-    input.addEventListener("change", function () {
+    resetPreview(display);
 
-        if (!this.files.length) {
+    input.addEventListener("change", () => {
 
-            display.innerHTML = "No file selected";
+        if (!input.files.length) {
+            resetPreview(display);
             return;
-
         }
 
-        const file = this.files[0];
+        const file = input.files[0];
 
         display.innerHTML = `
             <div class="file-preview">
 
                 <div class="file-details">
 
-                    <div class="file-name">${file.name}</div>
+                    <div class="file-name" title="${file.name}">
+                        ${file.name}
+                    </div>
 
-                    <div class="file-size">${formatFileSize(file.size)}</div>
+                    <div class="file-size">
+                        ${formatFileSize(file.size)}
+                    </div>
 
                 </div>
 
                 <button
                     type="button"
                     class="remove-file"
+                    aria-label="Remove file"
                     title="Remove File">
 
                     ×
@@ -54,27 +62,23 @@ function setupFileUpload(inputId, displayId) {
             </div>
         `;
 
-        display
-            .querySelector(".remove-file")
-            .addEventListener("click", function () {
+        display.querySelector(".remove-file").addEventListener("click", () => {
 
-                input.value = "";
-                display.innerHTML = "No file selected";
+            input.value = "";
 
-            });
+            resetPreview(display);
+
+        });
 
     });
 
 }
 
-// Image
+// ===============================
+// Initialize Uploads
+// ===============================
+
 setupFileUpload("projectImage", "imageFileName");
-
-// PDF
 setupFileUpload("pdfFile", "pdfFileName");
-
-// PowerPoint
 setupFileUpload("pptFile", "pptFileName");
-
-// ZIP
 setupFileUpload("zipFile", "zipFileName");
