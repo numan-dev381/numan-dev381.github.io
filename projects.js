@@ -1,71 +1,75 @@
 // ======================================
-// Projects Page UI
+// Projects Modal Controller
 // ======================================
 
-const addProjectBtn = document.getElementById("addProjectBtn");
-const projectModal = document.getElementById("projectModal");
-const closeModal = document.getElementById("closeModal");
-const cancelBtn = document.getElementById("cancelBtn");
-const projectForm = document.getElementById("projectForm");
+const modal = document.getElementById("projectModal");
+const form = document.getElementById("projectForm");
 
+const openBtn = document.getElementById("addProjectBtn");
+const closeBtn = document.getElementById("closeModal");
+const cancelBtn = document.getElementById("cancelBtn");
+
+// ----------------------
 // Open Modal
+// ----------------------
+
 function openModal() {
 
-    projectModal.style.display = "flex";
+    if (!modal) return;
+
+    modal.style.display = "flex";
     document.body.style.overflow = "hidden";
 
 }
 
+// ----------------------
 // Close Modal
-function closeProjectModal() {
+// ----------------------
 
-    projectModal.style.display = "none";
+function closeModal() {
+
+    if (!modal) return;
+
+    modal.style.display = "none";
     document.body.style.overflow = "auto";
 
-    if (projectForm) {
-        projectForm.reset();
-    }
+    if (form) form.reset();
 
 }
 
-// Open Button
-if (addProjectBtn) {
+// ----------------------
+// Button Events
+// ----------------------
 
-    addProjectBtn.addEventListener("click", openModal);
+openBtn?.addEventListener("click", openModal);
 
-}
+closeBtn?.addEventListener("click", closeModal);
 
-// Close (X)
-if (closeModal) {
+cancelBtn?.addEventListener("click", closeModal);
 
-    closeModal.addEventListener("click", closeProjectModal);
+// ----------------------
+// Close on Background Click
+// ----------------------
 
-}
+modal?.addEventListener("click", (e) => {
 
-// Cancel Button
-if (cancelBtn) {
+    if (e.target === modal) {
 
-    cancelBtn.addEventListener("click", closeProjectModal);
-
-}
-
-// Click Outside
-window.addEventListener("click", function (e) {
-
-    if (e.target === projectModal) {
-
-        closeProjectModal();
+        closeModal();
 
     }
 
 });
 
-// ESC Key
-document.addEventListener("keydown", function (e) {
+// ----------------------
+// Close on ESC
+// ----------------------
 
-    if (e.key === "Escape" && projectModal.style.display === "flex") {
+document.addEventListener("keydown", (e) => {
 
-        closeProjectModal();
+    if (e.key === "Escape" && modal.style.display === "flex") {
+
+        closeModal();
 
     }
 
