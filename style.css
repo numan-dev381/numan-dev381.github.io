@@ -1147,3 +1147,82 @@ header{
     background:#dc2626;
 
 }
+/* ==========================================
+   FILE UPLOAD CARDS
+========================================== */
+
+.files-title{
+
+    margin:35px 0 20px;
+
+    font-size:24px;
+
+    color:#ffffff;
+
+}
+
+.file-upload-card{
+
+    background:#1e293b;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:14px;
+
+    padding:18px 22px;
+
+    margin-bottom:18px;
+
+}
+
+.file-upload-card > label:first-child{
+
+    display:block;
+
+    font-weight:600;
+
+    margin-bottom:14px;
+
+    color:#ffffff;
+
+}
+
+.upload-button{
+
+    display:inline-block;
+
+    background:#3b82f6;
+
+    color:#ffffff;
+
+    padding:10px 18px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+
+    margin-right:15px;
+
+}
+
+.upload-button:hover{
+
+    background:#2563eb;
+
+}
+
+.file-upload-card span{
+
+    color:#cbd5e1;
+
+    font-size:15px;
+
+    word-break:break-word;
+
+    vertical-align:middle;
+
+}
