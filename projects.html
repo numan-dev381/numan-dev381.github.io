@@ -8,6 +8,9 @@
 
     <title>Projects | Numan Nasir</title>
 
+    <meta name="description"
+        content="Browse software engineering, web development and university projects by Numan Nasir.">
+
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -24,7 +27,11 @@
 
         <ul class="nav-links">
 
-            <li><a href="index.html">← Back to Portfolio</a></li>
+            <li>
+                <a href="index.html">
+                    ← Back to Portfolio
+                </a>
+            </li>
 
         </ul>
 
@@ -34,15 +41,23 @@
 
 <main class="projects-page">
 
+    <!-- =========================
+         PAGE HEADER
+    ========================== -->
+
     <section class="projects-header">
 
         <h1>My Projects</h1>
 
         <p>
-            Browse my university and personal software engineering projects.
+            Explore my software engineering, university and personal development projects.
         </p>
 
     </section>
+
+    <!-- =========================
+         TOOLBAR
+    ========================== -->
 
     <section class="projects-toolbar">
 
@@ -51,283 +66,436 @@
             id="searchProject"
             placeholder="Search projects...">
 
-        <button id="addProjectBtn">
-            ➕ Add Project
+        <button
+            id="addProjectBtn"
+            class="primary-btn">
+
+            + Add Project
+
         </button>
 
     </section>
 
-    <section id="projectsList" class="projects-list">
+    <!-- =========================
+         PROJECT LIST
+    ========================== -->
+
+    <section
+        id="projectsList"
+        class="projects-list">
 
         <div class="empty-state">
 
-            <h2>No Projects Available</h2>
+            <h2>No Projects Yet</h2>
 
             <p>
-                Click <strong>Add Project</strong> to create your first project.
+
+                Your uploaded projects will appear here.
+
             </p>
+
+            <button
+                class="primary-btn"
+                id="emptyAddProject">
+
+                Add First Project
+
+            </button>
 
         </div>
 
     </section>
-<!-- ================= ADD PROJECT MODAL ================= -->
 
-<div id="projectModal" class="modal">
+</main>
+
+<!-- ======================================================
+                    ADD PROJECT MODAL
+======================================================= -->
+
+<div
+    class="modal"
+    id="projectModal">
 
     <div class="modal-content">
 
-        <span id="closeModal" class="close-btn">&times;</span>
+        <button
+            class="close-btn"
+            id="closeModal">
+
+            &times;
+
+        </button>
 
         <h2>Add New Project</h2>
 
-<form id="projectForm">
+        <form id="projectForm">
 
-    <h3>Basic Information</h3>
+            <!-- =========================
+                 BASIC INFORMATION
+            ========================== -->
 
-    <label>Project Name</label>
-    <input type="text" placeholder="Enter project name" required>
+            <h3>Basic Information</h3>
 
-    <label>Description</label>
-    <textarea rows="5" placeholder="Describe your project..." required></textarea>
+            <label for="projectTitle">
 
-    <label>Category</label>
-    <select>
-        <option>Web Development</option>
-        <option>Desktop Application</option>
-        <option>Mobile Application</option>
-        <option>Database</option>
-        <option>Networking</option>
-        <option>AI / Machine Learning</option>
-        <option>Final Year Project</option>
-        <option>Other</option>
-    </select>
-
-    <label>Semester</label>
-    <select>
-        <option>Semester 1</option>
-        <option>Semester 2</option>
-        <option>Semester 3</option>
-        <option>Semester 4</option>
-        <option>Semester 5</option>
-        <option>Semester 6</option>
-        <option>Semester 7</option>
-        <option>Semester 8</option>
-        <option>Personal Project</option>
-    </select>
-
-    <label>Technologies Used</label>
-    <input type="text" placeholder="HTML, CSS, JavaScript">
-
-    <hr>
-
-    <h3>Project Links</h3>
-
-    <label>GitHub Repository</label>
-    <input type="url" placeholder="https://github.com/...">
-
-    <label>Live Website</label>
-    <input type="url" placeholder="https://">
-
-    <label>Demo Video</label>
-    <input type="url" placeholder="YouTube link">
-
-    <hr>
-
-<h3>Project Files</h3>
-
-<div class="files-container">
-
-    <!-- Project Image -->
-    <div class="file-card">
-
-        <div class="file-info">
-
-            <div class="file-icon image-icon">🖼</div>
-
-            <div>
-
-                <h4>Project Image</h4>
-
-                <p>Upload project thumbnail or screenshot</p>
-
-            </div>
-
-        </div>
-
-        <div class="file-actions">
-
-            <input
-                type="file"
-                id="projectImage"
-                accept="image/*"
-                hidden>
-
-            <label for="projectImage" class="upload-btn">
-                Upload
-            </label>
-
-            <div class="file-name" id="imageFileName">
-                No file selected
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- PDF -->
-
-    <div class="file-card">
-
-        <div class="file-info">
-
-            <div class="file-icon pdf-icon">📄</div>
-
-            <div>
-
-                <h4>PDF Report</h4>
-
-                <p>Upload project documentation</p>
-
-            </div>
-
-        </div>
-
-        <div class="file-actions">
-
-            <input
-                type="file"
-                id="pdfFile"
-                accept=".pdf"
-                hidden>
-
-            <label for="pdfFile" class="upload-btn">
-                Upload
-            </label>
-
-            <div class="file-name" id="pdfFileName">
-
-                No file selected
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- Presentation -->
-
-    <div class="file-card">
-
-        <div class="file-info">
-
-            <div class="file-icon ppt-icon">📊</div>
-
-            <div>
-
-                <h4>Presentation</h4>
-
-                <p>Upload PowerPoint presentation</p>
-
-            </div>
-
-        </div>
-
-        <div class="file-actions">
-
-            <input
-                type="file"
-                id="pptFile"
-                accept=".ppt,.pptx"
-                hidden>
-
-            <label for="pptFile" class="upload-btn">
-
-                Upload
+                Project Name
 
             </label>
 
-            <div class="file-name" id="pptFileName">
-
-                No file selected
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- ZIP -->
-
-    <div class="file-card">
-
-        <div class="file-info">
-
-            <div class="file-icon zip-icon">📦</div>
-
-            <div>
-
-                <h4>Source Code (ZIP)</h4>
-
-                <p>Upload complete source code</p>
-
-            </div>
-
-        </div>
-
-        <div class="file-actions">
-
             <input
-                type="file"
-                id="zipFile"
-                accept=".zip,.rar"
-                hidden>
+                id="projectTitle"
+                type="text"
+                placeholder="e.g. Student Management System"
+                required>
 
-            <label for="zipFile" class="upload-btn">
+            <label for="projectDescription">
 
-                Upload
+                Description
 
             </label>
 
-            <div class="file-name" id="zipFileName">
+            <textarea
+                id="projectDescription"
+                rows="5"
+                placeholder="Describe your project..."
+                required></textarea>
 
-                No file selected
+            <label for="projectCategory">
+
+                Category
+
+            </label>
+
+            <select id="projectCategory">
+
+                <option>Web Development</option>
+                <option>Desktop Application</option>
+                <option>Mobile Application</option>
+                <option>Database</option>
+                <option>Networking</option>
+                <option>Artificial Intelligence</option>
+                <option>Final Year Project</option>
+                <option>Personal Project</option>
+                <option>Other</option>
+
+            </select>
+
+            <label for="projectSemester">
+
+                Semester
+
+            </label>
+
+            <select id="projectSemester">
+
+                <option>Semester 1</option>
+                <option>Semester 2</option>
+                <option>Semester 3</option>
+                <option>Semester 4</option>
+                <option>Semester 5</option>
+                <option>Semester 6</option>
+                <option>Semester 7</option>
+                <option>Semester 8</option>
+                <option>Personal Project</option>
+
+            </select>
+
+            <label for="projectTech">
+
+                Technologies Used
+
+            </label>
+
+            <input
+                id="projectTech"
+                type="text"
+                placeholder="HTML, CSS, JavaScript, Firebase">
+
+            <hr>
+
+            <!-- =========================
+                 PROJECT LINKS
+            ========================== -->
+
+            <h3>Project Links</h3>
+
+            <label for="githubLink">
+
+                GitHub Repository
+
+            </label>
+
+            <input
+                id="githubLink"
+                type="url"
+                placeholder="https://github.com/username/project">
+
+            <label for="liveLink">
+
+                Live Website
+
+            </label>
+
+            <input
+                id="liveLink"
+                type="url"
+                placeholder="https://example.com">
+
+            <label for="videoLink">
+
+                Demo Video
+
+            </label>
+
+            <input
+                id="videoLink"
+                type="url"
+                placeholder="https://youtube.com/...">
+
+            <hr>
+
+            <!-- ======================================================
+                        PROJECT FILES
+                 (Continue in Part 2)
+            ====================================================== -->
+                        <h3>Project Files</h3>
+
+            <div class="files-container">
+
+                <!-- Project Image -->
+
+                <div class="file-card">
+
+                    <div class="file-info">
+
+                        <div class="file-icon image-icon">
+                            🖼
+                        </div>
+
+                        <div>
+
+                            <h4>Project Image</h4>
+
+                            <p>
+                                Upload a thumbnail or screenshot for your project.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="file-actions">
+
+                        <input
+                            type="file"
+                            id="projectImage"
+                            accept="image/*"
+                            hidden>
+
+                        <label
+                            for="projectImage"
+                            class="upload-btn">
+
+                            Upload
+
+                        </label>
+
+                        <div
+                            id="imageFileName"
+                            class="file-display">
+
+                            No file selected
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- PDF -->
+
+                <div class="file-card">
+
+                    <div class="file-info">
+
+                        <div class="file-icon pdf-icon">
+                            📄
+                        </div>
+
+                        <div>
+
+                            <h4>PDF Report</h4>
+
+                            <p>
+                                Upload project report or documentation.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="file-actions">
+
+                        <input
+                            type="file"
+                            id="pdfFile"
+                            accept=".pdf"
+                            hidden>
+
+                        <label
+                            for="pdfFile"
+                            class="upload-btn">
+
+                            Upload
+
+                        </label>
+
+                        <div
+                            id="pdfFileName"
+                            class="file-display">
+
+                            No file selected
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Presentation -->
+
+                <div class="file-card">
+
+                    <div class="file-info">
+
+                        <div class="file-icon ppt-icon">
+                            📊
+                        </div>
+
+                        <div>
+
+                            <h4>Presentation</h4>
+
+                            <p>
+                                Upload PowerPoint presentation.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="file-actions">
+
+                        <input
+                            type="file"
+                            id="pptFile"
+                            accept=".ppt,.pptx"
+                            hidden>
+
+                        <label
+                            for="pptFile"
+                            class="upload-btn">
+
+                            Upload
+
+                        </label>
+
+                        <div
+                            id="pptFileName"
+                            class="file-display">
+
+                            No file selected
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ZIP -->
+
+                <div class="file-card">
+
+                    <div class="file-info">
+
+                        <div class="file-icon zip-icon">
+                            📦
+                        </div>
+
+                        <div>
+
+                            <h4>Source Code</h4>
+
+                            <p>
+                                Upload ZIP or RAR source files.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="file-actions">
+
+                        <input
+                            type="file"
+                            id="zipFile"
+                            accept=".zip,.rar"
+                            hidden>
+
+                        <label
+                            for="zipFile"
+                            class="upload-btn">
+
+                            Upload
+
+                        </label>
+
+                        <div
+                            id="zipFileName"
+                            class="file-display">
+
+                            No file selected
+
+                        </div>
+
+                    </div>
+
+                </div>
 
             </div>
 
-        </div>
+            <hr>
+
+            <div class="form-buttons">
+
+                <button
+                    type="button"
+                    id="cancelBtn"
+                    class="btn secondary-btn">
+
+                    Cancel
+
+                </button>
+
+                <button
+                    type="submit"
+                    class="btn primary-btn">
+
+                    Save Project
+
+                </button>
+
+            </div>
+
+        </form>
 
     </div>
 
 </div>
-    <hr>
-
-<div class="form-buttons">
-
-    <button
-        type="button"
-        class="btn secondary-btn"
-        id="cancelBtn">
-        Cancel
-    </button>
-
-    <button
-        type="submit"
-        class="btn primary-btn">
-        Save Project
-    </button>
-
-</div>
-
-</form>
-    </div>
-
-</div>
-</main>
 
 <script src="script.js"></script>
 <script src="projects.js"></script>
 <script type="module" src="app.js"></script>
 
 </body>
-
 </html>
