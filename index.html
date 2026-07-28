@@ -282,6 +282,53 @@
 </div>
 
 <script type="module" src="./js/hidden-login.js"></script>
+    <!-- ==============================
+ADMIN LOGIN POPUP
+============================== -->
+
+<div class="login-overlay" id="loginOverlay">
+
+    <div class="login-box">
+
+        <button class="login-close" id="closeLogin">
+            &times;
+        </button>
+
+        <h2>Administrator Login</h2>
+
+        <p>Authorized access only.</p>
+
+        <form class="login-form" id="loginForm">
+
+            <input
+                id="email"
+                type="email"
+                placeholder="Email"
+                required>
+
+            <input
+                id="password"
+                type="password"
+                placeholder="Password"
+                required>
+
+            <button class="login-btn" type="submit">
+                Login
+            </button>
+
+        </form>
+
+        <div class="login-divider">
+            or
+        </div>
+
+        <button class="cancel-btn" id="cancelLogin">
+            Cancel
+        </button>
+
+    </div>
+
+</div>
 </body>
 
 </html>
