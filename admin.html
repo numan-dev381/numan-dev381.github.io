@@ -3,58 +3,536 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-<title>Portfolio Admin</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="style.css">
+    <title>Portfolio Dashboard | Numan Nasir</title>
+
+    <meta name="description"
+          content="Portfolio Admin Dashboard">
+
+    <link rel="stylesheet"
+          href="style.css">
 
 </head>
 
 <body>
 
+<!-- ==========================================
+                HEADER
+========================================== -->
+
 <header>
 
-<div class="navbar">
+    <nav class="navbar">
 
-<a href="index.html" class="logo">Numan.</a>
+        <a href="index.html"
+           class="logo">
 
-<button id="logoutBtn" class="btn secondary-btn">
-Logout
-</button>
+            Numan Nasir
 
-</div>
+        </a>
+
+        <div class="admin-actions">
+
+            <button
+                id="addProjectBtn"
+                class="btn primary-btn">
+
+                ➕ Add Project
+
+            </button>
+
+            <button
+                id="logoutBtn"
+                class="btn secondary-btn">
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </nav>
 
 </header>
 
-<section class="projects-page">
+<!-- ==========================================
+            DASHBOARD
+========================================== -->
 
-<div class="projects-header">
+<main class="projects-page">
 
-<h1>Portfolio Dashboard</h1>
+    <section class="projects-header">
+
+        <h1>
+
+            Portfolio Dashboard
+
+        </h1>
+
+        <p>
+
+            Manage your portfolio professionally.
+
+        </p>
+
+    </section>
+
+<!-- ==========================================
+            SEARCH
+========================================== -->
+
+<section class="projects-toolbar">
+
+<input
+
+type="text"
+
+id="searchProject"
+
+placeholder="Search project...">
+
+</section>
+
+<!-- ==========================================
+            PROJECT LIST
+========================================== -->
+
+<section
+
+id="projectsContainer"
+
+class="projects-list">
+
+<div class="empty-state">
+
+<h2>
+
+No Projects Added
+
+</h2>
 
 <p>
-Welcome back. Manage your portfolio professionally.
+
+Click the Add Project button to publish your first project.
+
 </p>
 
 </div>
 
-<div class="projects-toolbar">
+</section>
 
-<button id="addProjectBtn" class="btn primary-btn">
+</main>
 
-➕ Add Project
+<!-- ==========================================
+        ADD / EDIT PROJECT MODAL
+========================================== -->
+
+<div
+
+id="projectModal"
+
+class="modal">
+
+<div class="modal-content">
+
+<button
+
+id="closeModal"
+
+class="close-btn">
+
+&times;
 
 </button>
 
+<h2>
+
+Add New Project
+
+</h2>
+
+<form id="projectForm">
+  <!-- ==========================================
+            BASIC INFORMATION
+========================================== -->
+
+<h3>Basic Information</h3>
+
+<label for="projectTitle">
+
+    Project Name
+
+</label>
+
+<input
+    type="text"
+    id="projectTitle"
+    placeholder="e.g. Student Management System"
+    required>
+
+<label for="projectDescription">
+
+    Description
+
+</label>
+
+<textarea
+    id="projectDescription"
+    rows="5"
+    placeholder="Describe your project..."
+    required></textarea>
+
+<label for="projectCategory">
+
+    Category
+
+</label>
+
+<select id="projectCategory">
+
+    <option>Web Development</option>
+    <option>Desktop Application</option>
+    <option>Mobile Application</option>
+    <option>Database</option>
+    <option>Networking</option>
+    <option>Artificial Intelligence</option>
+    <option>Final Year Project</option>
+    <option>Personal Project</option>
+    <option>Other</option>
+
+</select>
+
+<label for="projectSemester">
+
+    Semester
+
+</label>
+
+<select id="projectSemester">
+
+    <option>Semester 1</option>
+    <option>Semester 2</option>
+    <option>Semester 3</option>
+    <option>Semester 4</option>
+    <option>Semester 5</option>
+    <option>Semester 6</option>
+    <option>Semester 7</option>
+    <option>Semester 8</option>
+    <option>Personal Project</option>
+
+</select>
+
+<label for="projectTech">
+
+    Technologies Used
+
+</label>
+
+<input
+    type="text"
+    id="projectTech"
+    placeholder="HTML, CSS, JavaScript, Firebase">
+
+<hr>
+
+<!-- ==========================================
+            PROJECT LINKS
+========================================== -->
+
+<h3>Project Links</h3>
+
+<label for="githubLink">
+
+    GitHub Repository
+
+</label>
+
+<input
+    type="url"
+    id="githubLink"
+    placeholder="https://github.com/username/project">
+
+<label for="liveLink">
+
+    Live Website
+
+</label>
+
+<input
+    type="url"
+    id="liveLink"
+    placeholder="https://example.com">
+
+<label for="videoLink">
+
+    Demo Video
+
+</label>
+
+<input
+    type="url"
+    id="videoLink"
+    placeholder="https://youtube.com/...">
+
+<hr>
+
+<!-- ==========================================
+            PROJECT FILES
+========================================== -->
+
+<h3>Project Files</h3>
+
+<div class="files-container">
+  <!-- =========================
+     PROJECT IMAGE
+========================= -->
+
+<div class="file-card">
+
+    <div class="file-info">
+
+        <div class="file-icon">
+            🖼️
+        </div>
+
+        <div>
+
+            <h4>Project Image</h4>
+
+            <p>
+                Upload the main thumbnail or screenshot.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="file-actions">
+
+        <input
+            type="file"
+            id="projectImage"
+            accept="image/*"
+            hidden>
+
+        <label
+            for="projectImage"
+            class="upload-btn">
+
+            Upload Image
+
+        </label>
+
+        <div
+            id="imageFileName"
+            class="file-display">
+
+            No file selected
+
+        </div>
+
+    </div>
+
 </div>
 
-<div id="projectsContainer" class="projects-list">
+<!-- =========================
+     PDF REPORT
+========================= -->
+
+<div class="file-card">
+
+    <div class="file-info">
+
+        <div class="file-icon">
+            📄
+        </div>
+
+        <div>
+
+            <h4>PDF Report</h4>
+
+            <p>
+                Upload project report or documentation.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="file-actions">
+
+        <input
+            type="file"
+            id="pdfFile"
+            accept=".pdf"
+            hidden>
+
+        <label
+            for="pdfFile"
+            class="upload-btn">
+
+            Upload PDF
+
+        </label>
+
+        <div
+            id="pdfFileName"
+            class="file-display">
+
+            No file selected
+
+        </div>
+
+    </div>
 
 </div>
 
-</section>
+<!-- =========================
+     POWERPOINT
+========================= -->
+
+<div class="file-card">
+
+    <div class="file-info">
+
+        <div class="file-icon">
+            📊
+        </div>
+
+        <div>
+
+            <h4>Presentation</h4>
+
+            <p>
+                Upload your PowerPoint presentation.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="file-actions">
+
+        <input
+            type="file"
+            id="pptFile"
+            accept=".ppt,.pptx"
+            hidden>
+
+        <label
+            for="pptFile"
+            class="upload-btn">
+
+            Upload PPT
+
+        </label>
+
+        <div
+            id="pptFileName"
+            class="file-display">
+
+            No file selected
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     SOURCE CODE
+========================= -->
+
+<div class="file-card">
+
+    <div class="file-info">
+
+        <div class="file-icon">
+            📦
+        </div>
+
+        <div>
+
+            <h4>Source Code</h4>
+
+            <p>
+                Upload ZIP or RAR source files.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="file-actions">
+
+        <input
+            type="file"
+            id="zipFile"
+            accept=".zip,.rar"
+            hidden>
+
+        <label
+            for="zipFile"
+            class="upload-btn">
+
+            Upload ZIP
+
+        </label>
+
+        <div
+            id="zipFileName"
+            class="file-display">
+
+            No file selected
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<hr>
+<!-- ==========================================
+            FORM BUTTONS
+========================================== -->
+
+<div class="form-buttons">
+
+    <button
+        type="button"
+        id="cancelBtn"
+        class="btn secondary-btn">
+
+        Cancel
+
+    </button>
+
+    <button
+        type="submit"
+        id="saveProjectBtn"
+        class="btn primary-btn">
+
+        💾 Save Project
+
+    </button>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+<!-- ==========================================
+            SCRIPTS
+========================================== -->
 
 <script type="module" src="./js/admin.js"></script>
 
