@@ -1,22 +1,29 @@
 import { auth } from "./firebase.js";
 
 import {
+
     signInWithEmailAndPassword,
+
     signOut,
+
     onAuthStateChanged
+
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
 
 // ======================================
 // LOGIN
 // ======================================
 
-async function login(email, password) {
+async function login(email,password){
 
-    try {
+    try{
 
-        await signInWithEmailAndPassword(auth, email, password);
+        await signInWithEmailAndPassword(auth,email,password);
 
-    } catch (error) {
+    }
+
+    catch(error){
 
         alert("Login Failed\n\n" + error.message);
 
@@ -24,19 +31,22 @@ async function login(email, password) {
 
 }
 
+
 // ======================================
 // LOGOUT
 // ======================================
 
-async function logout() {
+async function logout(){
 
-    try {
+    try{
 
         await signOut(auth);
 
-        window.location.href = "index.html";
+        window.location.href="index.html";
 
-    } catch (error) {
+    }
+
+    catch(error){
 
         console.error(error);
 
@@ -44,23 +54,41 @@ async function logout() {
 
 }
 
+
 // ======================================
-// AUTH STATE
+// AUTH STATE LISTENER
 // ======================================
 
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth,(user)=>{
 
-    // If user is on login page and already logged in
-    if (user && window.location.pathname.includes("login.html")) {
+    const currentPage =
+        window.location.pathname.split("/").pop();
 
-        window.location.href = "admin.html";
+    // Already logged in and on login page
+    if(user && currentPage==="login.html"){
+
+        window.location.href="admin.html";
+
+    }
+
+    // Not logged in but trying to access admin
+    if(!user && currentPage==="admin.html"){
+
+        window.location.href="login.html";
 
     }
 
 });
 
+
 // ======================================
-// EXPORT
+// EXPORTS
 // ======================================
 
-export { login, logout };
+export{
+
+    login,
+
+    logout
+
+};
