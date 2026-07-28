@@ -1,3 +1,4 @@
+console.log("App.js Loaded");
 import { login } from "./auth.js";
 
 const loginOverlay = document.getElementById("loginOverlay");
