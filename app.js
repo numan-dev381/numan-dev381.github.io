@@ -15,3 +15,40 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 console.log("Firebase Connected Successfully!");
+import { login } from "./auth.js";
+
+const loginOverlay = document.getElementById("loginOverlay");
+const loginForm = document.getElementById("loginForm");
+
+document.addEventListener("keydown", (e) => {
+
+    if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "l") {
+
+        loginOverlay.classList.add("active");
+
+    }
+
+});
+
+document.getElementById("closeLogin").onclick = () => {
+
+    loginOverlay.classList.remove("active");
+
+};
+
+document.getElementById("cancelLogin").onclick = () => {
+
+    loginOverlay.classList.remove("active");
+
+};
+
+loginForm.addEventListener("submit", async (e) => {
+
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    await login(email, password);
+
+});
