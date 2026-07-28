@@ -6,52 +6,61 @@ import {
     onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
-// =============================
-// Login
-// =============================
+// ======================================
+// LOGIN
+// ======================================
+
 async function login(email, password) {
 
     try {
 
         await signInWithEmailAndPassword(auth, email, password);
 
-        window.location.href = "admin.html";
-
     } catch (error) {
 
-        alert(error.message);
+        alert("Login Failed\n\n" + error.message);
 
     }
 
 }
 
-// =============================
-// Logout
-// =============================
+// ======================================
+// LOGOUT
+// ======================================
+
 async function logout() {
 
-    await signOut(auth);
+    try {
 
-    window.location.href = "index.html";
+        await signOut(auth);
+
+        window.location.href = "index.html";
+
+    } catch (error) {
+
+        console.error(error);
+
+    }
 
 }
 
-// =============================
-// Check Login Status
-// =============================
+// ======================================
+// AUTH STATE
+// ======================================
+
 onAuthStateChanged(auth, (user) => {
 
-    if (user) {
+    // If user is on login page and already logged in
+    if (user && window.location.pathname.includes("login.html")) {
 
-        console.log("Logged in:", user.email);
-
-    } else {
-
-        console.log("Not Logged In");
+        window.location.href = "admin.html";
 
     }
 
 });
 
-// Export
+// ======================================
+// EXPORT
+// ======================================
+
 export { login, logout };
