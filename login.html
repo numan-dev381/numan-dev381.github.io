@@ -4,7 +4,9 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Admin Login | Numan Portfolio</title>
 
@@ -28,18 +30,20 @@
                 type="email"
                 id="email"
                 placeholder="Email"
-                required
-            >
+                required>
 
             <input
                 type="password"
                 id="password"
                 placeholder="Password"
-                required
-            >
+                required>
 
-            <button class="btn primary-btn" type="submit">
+            <button
+                type="submit"
+                class="btn primary-btn">
+
                 Login
+
             </button>
 
         </form>
@@ -58,15 +62,16 @@ form.addEventListener("submit", async (e)=>{
 
     e.preventDefault();
 
-    const email = document.getElementById("email").value;
+    const email = document.getElementById("email").value.trim();
 
     const password = document.getElementById("password").value;
 
-    login(email,password);
+    await login(email,password);
 
 });
 
 </script>
 
 </body>
+
 </html>
