@@ -16,24 +16,12 @@ import {
 // ======================================
 
 async function login(email, password) {
-
     try {
-
-        const userCredential = await signInWithEmailAndPassword(auth, email, password);
-
-        console.log("LOGIN SUCCESS");
-        console.log(userCredential.user);
-
+        await signInWithEmailAndPassword(auth, email, password);
         window.location.href = "admin.html";
-
     } catch (error) {
-
-        console.error(error);
-
-        alert(error.code + "\n\n" + error.message);
-
+        alert(error.message);
     }
-
 }
 
 // ======================================
