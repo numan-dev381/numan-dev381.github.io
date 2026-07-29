@@ -3,13 +3,11 @@
 // =========================================
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-
 import { getAuth } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
-
 import { getFirestore } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCk0GMk8w_xikGGJCgW9lwXLCtkNYqlTko"
+    apiKey: "AIzaSyCk0GMk8w_xikGGJCgW9lwXLCtkNYqlTko",
     authDomain: "numan-portfolio-9eea5.firebaseapp.com",
     projectId: "numan-portfolio-9eea5",
     storageBucket: "numan-portfolio-9eea5.firebasestorage.app",
@@ -24,5 +22,4 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// Export Services
 export { auth, db };
