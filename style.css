@@ -1352,37 +1352,37 @@ header{
     box-shadow:0 20px 60px rgba(0,0,0,.45);
 }
 
+
 .login-close{
     position:absolute;
-    top:18px;
-    right:18px;
+    top:12px;
+    right:12px;
 
-    width:42px;
-    height:42px;
+    width:28px;
+    height:28px;
 
     border:none;
-    border-radius:50%;
+    background:none;
 
-    background:#1e293b;
+    color:#94a3b8;
 
-    color:#cbd5e1;
-
-    font-size:28px;
-    cursor:pointer;
+    font-size:22px;
+    font-weight:600;
+    line-height:1;
 
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
 
-    transition:.3s;
+    cursor:pointer;
+
+    transition:.25s ease;
 }
 
 .login-close:hover{
-    background:#3b82f6;
-    color:#fff;
-    transform:rotate(90deg);
+    color:#ffffff;
+    transform:scale(1.15);
 }
-
 .login-box h2{
     text-align:center;
     color:#3b82f6;
@@ -1456,4 +1456,26 @@ header{
 .cancel-btn:hover{
     border-color:#3b82f6;
     background:#1e293b;
+}.password-box{
+    position:relative;
+    width:100%;
+}
+
+.password-box input{
+    padding-right:50px;
+}
+
+.password-toggle{
+    position:absolute;
+    right:16px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    color:#94a3b8;
+    font-size:20px;
+    user-select:none;
+}
+
+.password-toggle:hover{
+    color:white;
 }
