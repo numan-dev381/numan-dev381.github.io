@@ -80,21 +80,29 @@ loginForm.addEventListener("submit", async (e) => {
     await login(email, password);
 
 });
+// ==========================================
+// SHOW / HIDE PASSWORD
+// ==========================================
+
 const password = document.getElementById("password");
 const togglePassword = document.getElementById("togglePassword");
 
-togglePassword.addEventListener("click", () => {
+if (password && togglePassword) {
 
-    if (password.type === "password") {
+    togglePassword.addEventListener("click", () => {
 
-        password.type = "text";
-        togglePassword.textContent = "Hide";
+        if (password.type === "password") {
 
-    } else {
+            password.type = "text";
+            togglePassword.textContent = "Hide";
 
-        password.type = "password";
-        togglePassword.textContent = "Show";
+        } else {
 
-    }
+            password.type = "password";
+            togglePassword.textContent = "Show";
 
-});
+        }
+
+    });
+
+}
