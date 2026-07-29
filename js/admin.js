@@ -1,5 +1,5 @@
 // ======================================================
-// Firebase Imports
+// Imports
 // ======================================================
 
 import { auth, db } from "./firebase.js";
@@ -21,7 +21,7 @@ import {
 
 
 // ======================================================
-// Authentication Check
+// Authentication
 // ======================================================
 
 onAuthStateChanged(auth, (user) => {
@@ -36,7 +36,7 @@ onAuthStateChanged(auth, (user) => {
 
 
 // ======================================================
-// HTML Elements
+// Elements
 // ======================================================
 
 const logoutBtn = document.getElementById("logoutBtn");
@@ -44,20 +44,43 @@ const addProjectBtn = document.getElementById("addProjectBtn");
 const projectModal = document.getElementById("projectModal");
 const closeModal = document.getElementById("closeModal");
 const cancelBtn = document.getElementById("cancelBtn");
+
 const projectForm = document.getElementById("projectForm");
-const projectsContainer = document.getElementById("projectsContainer");
-const searchProject = document.getElementById("searchProject");
 
-// Files
-const projectImage = document.getElementById("projectImage");
-const pdfFile = document.getElementById("pdfFile");
-const pptFile = document.getElementById("pptFile");
-const zipFile = document.getElementById("zipFile");
+const projectsContainer =
+    document.getElementById("projectsContainer");
 
-const imageFileName = document.getElementById("imageFileName");
-const pdfFileName = document.getElementById("pdfFileName");
-const pptFileName = document.getElementById("pptFileName");
-const zipFileName = document.getElementById("zipFileName");
+const searchProject =
+    document.getElementById("searchProject");
+
+
+// ======================================================
+// File Inputs
+// ======================================================
+
+const projectImage =
+    document.getElementById("projectImage");
+
+const pdfFile =
+    document.getElementById("pdfFile");
+
+const pptFile =
+    document.getElementById("pptFile");
+
+const zipFile =
+    document.getElementById("zipFile");
+
+const imageFileName =
+    document.getElementById("imageFileName");
+
+const pdfFileName =
+    document.getElementById("pdfFileName");
+
+const pptFileName =
+    document.getElementById("pptFileName");
+
+const zipFileName =
+    document.getElementById("zipFileName");
 
 
 // ======================================================
@@ -68,7 +91,7 @@ logoutBtn.addEventListener("click", logout);
 
 
 // ======================================================
-// Open Modal
+// Modal
 // ======================================================
 
 addProjectBtn.addEventListener("click", () => {
@@ -76,11 +99,6 @@ addProjectBtn.addEventListener("click", () => {
     projectModal.style.display = "flex";
 
 });
-
-
-// ======================================================
-// Close Modal
-// ======================================================
 
 closeModal.addEventListener("click", () => {
 
@@ -93,11 +111,6 @@ cancelBtn.addEventListener("click", () => {
     projectModal.style.display = "none";
 
 });
-
-
-// ======================================================
-// Close Modal When Clicking Outside
-// ======================================================
 
 window.addEventListener("click", (e) => {
 
@@ -149,33 +162,36 @@ zipFile.addEventListener("change", () => {
             : "No file selected";
 
 });
-
-
 // ======================================================
 // Upload File To Supabase
 // ======================================================
 
-async function uploadFile(file) {
+async function uploadFile(file, folder) {
 
     if (!file) return "";
 
-    const fileName = Date.now() + "_" + file.name;
+    const fileName =
+        Date.now() + "_" +
+        file.name.replace(/\s+/g, "_");
 
-    const { error } = await supabase.storage
-        .from("portfolio-files")
-        .upload(fileName, file);
+    const filePath =
+        `${folder}/${fileName}`;
+
+    const { error } =
+        await supabase.storage
+            .from("portfolio-files")
+            .upload(filePath, file);
 
     if (error) {
 
-        alert(error.message);
-
-        return "";
+        throw error;
 
     }
 
-    const { data } = supabase.storage
-        .from("portfolio-files")
-        .getPublicUrl(fileName);
+    const { data } =
+        supabase.storage
+            .from("portfolio-files")
+            .getPublicUrl(filePath);
 
     return data.publicUrl;
 
@@ -192,22 +208,55 @@ projectForm.addEventListener("submit", async (e) => {
 
     try {
 
-        const imageUrl = await uploadFile(projectImage.files[0]);
-        const pdfUrl = await uploadFile(pdfFile.files[0]);
-        const pptUrl = await uploadFile(pptFile.files[0]);
-        const zipUrl = await uploadFile(zipFile.files[0]);
+        const imageUrl =
+            await uploadFile(
+                projectImage.files[0],
+                "images"
+            );
+
+        const pdfUrl =
+            await uploadFile(
+                pdfFile.files[0],
+                "pdf"
+            );
+
+        const pptUrl =
+            await uploadFile(
+                pptFile.files[0],
+                "ppt"
+            );
+
+        const zipUrl =
+            await uploadFile(
+                zipFile.files[0],
+                "zip"
+            );
 
         await addDoc(collection(db, "projects"), {
 
-            title: document.getElementById("projectTitle").value,
-            description: document.getElementById("projectDescription").value,
-            category: document.getElementById("projectCategory").value,
-            semester: document.getElementById("projectSemester").value,
-            technologies: document.getElementById("projectTech").value,
+            title:
+                document.getElementById("projectTitle").value,
 
-            github: document.getElementById("githubLink").value,
-            live: document.getElementById("liveLink").value,
-            video: document.getElementById("videoLink").value,
+            description:
+                document.getElementById("projectDescription").value,
+
+            category:
+                document.getElementById("projectCategory").value,
+
+            semester:
+                document.getElementById("projectSemester").value,
+
+            technologies:
+                document.getElementById("projectTech").value,
+
+            github:
+                document.getElementById("githubLink").value,
+
+            live:
+                document.getElementById("liveLink").value,
+
+            video:
+                document.getElementById("videoLink").value,
 
             image: imageUrl,
             pdf: pdfUrl,
@@ -218,111 +267,157 @@ projectForm.addEventListener("submit", async (e) => {
 
         });
 
-        alert("Project Added Successfully.");
+        alert("Project added successfully!");
 
         projectForm.reset();
 
-        imageFileName.textContent = "No file selected";
-        pdfFileName.textContent = "No file selected";
-        pptFileName.textContent = "No file selected";
-        zipFileName.textContent = "No file selected";
+        imageFileName.textContent =
+            "No file selected";
+
+        pdfFileName.textContent =
+            "No file selected";
+
+        pptFileName.textContent =
+            "No file selected";
+
+        zipFileName.textContent =
+            "No file selected";
 
         projectModal.style.display = "none";
 
     }
 
-    catch (err) {
-
-        alert(err.message);
-
-    }
-
-});
-window.addEventListener("click", (e) => {
-
-    if (e.target === projectModal) {
-
-        projectModal.style.display = "none";
-
-    }
-
-});
-// ======================================================
-// Supabase Storage
-// ======================================================
-
-import { supabase } from "./supabase.js";
-
-async function uploadFile(file, folder) {
-
-    if (!file) return "";
-
-    const fileName =
-        Date.now() + "_" + file.name.replace(/\s+/g, "_");
-
-    const filePath =
-        `${folder}/${fileName}`;
-
-    const { error } =
-        await supabase.storage
-        .from("portfolio-files")
-        .upload(filePath, file);
-
-    if (error) {
+    catch (error) {
 
         alert(error.message);
 
-        return "";
+    }
+
+});
+// ======================================================
+// Load Projects
+// ======================================================
+
+async function loadProjects() {
+
+    projectsContainer.innerHTML = "";
+
+    const snapshot = await getDocs(collection(db, "projects"));
+
+    if (snapshot.empty) {
+
+        projectsContainer.innerHTML = `
+            <div class="empty-state">
+                <h2>No Projects Added</h2>
+                <p>Click the Add Project button to publish your first project.</p>
+            </div>
+        `;
+
+        return;
 
     }
 
-    const { data } =
-        supabase.storage
-        .from("portfolio-files")
-        .getPublicUrl(filePath);
+    snapshot.forEach((docSnap) => {
 
-    return data.publicUrl;
+        const project = docSnap.data();
+
+        projectsContainer.innerHTML += `
+
+        <div class="project-card">
+
+            <img
+                src="${project.image || "https://placehold.co/600x350?text=No+Image"}"
+                class="project-image">
+
+            <div class="project-content">
+
+                <h3>${project.title}</h3>
+
+                <p>${project.description}</p>
+
+                <p><strong>Category:</strong> ${project.category}</p>
+
+                <p><strong>Semester:</strong> ${project.semester}</p>
+
+                <p><strong>Technologies:</strong> ${project.technologies}</p>
+
+                <div class="project-links">
+
+                    ${
+                        project.github
+                        ? `<a href="${project.github}" target="_blank">GitHub</a>`
+                        : ""
+                    }
+
+                    ${
+                        project.live
+                        ? `<a href="${project.live}" target="_blank">Live</a>`
+                        : ""
+                    }
+
+                    ${
+                        project.video
+                        ? `<a href="${project.video}" target="_blank">Video</a>`
+                        : ""
+                    }
+
+                    ${
+                        project.pdf
+                        ? `<a href="${project.pdf}" target="_blank">PDF</a>`
+                        : ""
+                    }
+
+                    ${
+                        project.ppt
+                        ? `<a href="${project.ppt}" target="_blank">Presentation</a>`
+                        : ""
+                    }
+
+                    ${
+                        project.zip
+                        ? `<a href="${project.zip}" target="_blank">Source Code</a>`
+                        : ""
+                    }
+
+                </div>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
 
 }
+
+
 // ======================================================
-// Save Project
+// Search Projects
 // ======================================================
 
-projectForm.addEventListener("submit", async (e) => {
+searchProject.addEventListener("keyup", () => {
 
-    e.preventDefault();
+    const value =
+        searchProject.value.toLowerCase();
 
-    const image =
-        document.getElementById("projectImage").files[0];
+    const cards =
+        document.querySelectorAll(".project-card");
 
-    const pdf =
-        document.getElementById("pdfFile").files[0];
+    cards.forEach(card => {
 
-    const ppt =
-        document.getElementById("pptFile").files[0];
+        card.style.display =
+            card.innerText.toLowerCase().includes(value)
+                ? "block"
+                : "none";
 
-    const zip =
-        document.getElementById("zipFile").files[0];
-
-    alert("Uploading files...");
-
-    const imageUrl =
-        await uploadFile(image, "images");
-
-    const pdfUrl =
-        await uploadFile(pdf, "pdf");
-
-    const pptUrl =
-        await uploadFile(ppt, "ppt");
-
-    const zipUrl =
-        await uploadFile(zip, "zip");
-
-    console.log(imageUrl);
-    console.log(pdfUrl);
-    console.log(pptUrl);
-    console.log(zipUrl);
-
-    alert("Files uploaded successfully!");
+    });
 
 });
+
+
+// ======================================================
+// Initial Load
+// ======================================================
+
+loadProjects();
