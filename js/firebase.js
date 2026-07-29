@@ -9,7 +9,7 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth
 import { getFirestore } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCKc0GMk8w_xikGGJCgW9lwXLCtkNYqlTko",
+    apiKey: "AIzaSyCk0GMk8w_xikGGJCgW9lwXLCtkNYqlTko"
     authDomain: "numan-portfolio-9eea5.firebaseapp.com",
     projectId: "numan-portfolio-9eea5",
     storageBucket: "numan-portfolio-9eea5.firebasestorage.app",
