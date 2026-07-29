@@ -15,22 +15,26 @@ import {
 // LOGIN
 // ======================================
 
-async function login(email,password){
+async function login(email, password) {
 
-    try{
+    try {
 
-        await signInWithEmailAndPassword(auth,email,password);
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
 
-    }
+        console.log("LOGIN SUCCESS");
+        console.log(userCredential.user);
 
-    catch(error){
+        window.location.href = "admin.html";
 
-        alert("Login Failed\n\n" + error.message);
+    } catch (error) {
+
+        console.error(error);
+
+        alert(error.code + "\n\n" + error.message);
 
     }
 
 }
-
 
 // ======================================
 // LOGOUT
