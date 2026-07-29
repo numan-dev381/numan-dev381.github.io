@@ -1232,21 +1232,16 @@ header{
 .login-page{
 
     min-height:100vh;
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
     padding:30px;
 
 }
 
-.login-box{
+.login-page .login-box{
 
     width:100%;
-
     max-width:420px;
 
     background:#1e293b;
@@ -1261,37 +1256,31 @@ header{
 
 }
 
-.login-box h2{
+.login-page .login-box h2{
 
     text-align:center;
-
     color:#3b82f6;
-
     margin-bottom:10px;
 
 }
 
-.login-box p{
+.login-page .login-box p{
 
     text-align:center;
-
     color:#94a3b8;
-
     margin-bottom:30px;
 
 }
 
-.login-box form{
+.login-page .login-box form{
 
     display:flex;
-
     flex-direction:column;
-
     gap:18px;
 
 }
 
-.login-box input{
+.login-page .login-box input{
 
     padding:15px;
 
@@ -1307,7 +1296,7 @@ header{
 
 }
 
-.login-box input:focus{
+.login-page .login-box input:focus{
 
     outline:none;
 
@@ -1317,7 +1306,7 @@ header{
 
 }
 
-.login-box button{
+.login-page .login-box button{
 
     width:100%;
 
@@ -1327,146 +1316,179 @@ header{
 ========================================== */
 
 .login-overlay{
+
     position:fixed;
     inset:0;
+
     display:none;
+
     justify-content:center;
     align-items:center;
+
     background:rgba(0,0,0,.75);
+
     backdrop-filter:blur(8px);
+
     z-index:999999;
+
 }
 
 .login-overlay.active{
+
     display:flex;
+
 }
 
 .login-box{
+
+    position:relative;
+
     width:90%;
     max-width:520px;
+
     background:#111827;
-    border-radius:24px;
-    padding:50px 40px;
-    position:relative;
+
+    border-radius:22px;
+
+    padding:60px 35px 35px;
+
     border:1px solid rgba(255,255,255,.08);
-    box-shadow:0 20px 60px rgba(0,0,0,.45);
+
+    box-shadow:0 25px 60px rgba(0,0,0,.45);
+
 }
 
+/* ================= Close Button ================= */
 
 .login-close{
-    position:absolute;
-    top:12px;
-    right:12px;
 
-    width:28px;
-    height:28px;
+    position:absolute;
+
+    top:15px;
+    right:15px;
+
+    width:32px;
+    height:32px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:transparent;
 
     border:none;
-    background:none;
+
+    outline:none;
 
     color:#94a3b8;
 
     font-size:22px;
-    font-weight:600;
-    line-height:1;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    font-weight:700;
+
+    line-height:1;
 
     cursor:pointer;
 
-    transition:.25s ease;
+    transition:.25s;
+
+    z-index:999;
+
 }
 
 .login-close:hover{
-    color:#ffffff;
-    transform:scale(1.15);
-}
-.login-box h2{
-    text-align:center;
+
     color:#3b82f6;
-    font-size:42px;
+
+    transform:scale(1.15);
+
+}
+
+/* ================= Heading ================= */
+
+.login-box h2{
+
+    text-align:center;
+
+    color:#3b82f6;
+
+    font-size:38px;
+
     margin-bottom:10px;
+
 }
 
 .login-box p{
+
     text-align:center;
+
     color:#94a3b8;
-    margin-bottom:35px;
+
+    margin-bottom:28px;
+
 }
 
+/* ================= Form ================= */
+
 .login-form{
+
     display:flex;
+
     flex-direction:column;
-    gap:20px;
+
+    gap:18px;
+
 }
 
 .login-form input{
+
     width:100%;
-    height:58px;
+
+    height:56px;
+
     border:none;
+
     outline:none;
+
     border-radius:14px;
+
     padding:0 18px;
+
     background:#0f172a;
-    color:#fff;
+
+    color:#ffffff;
+
     font-size:16px;
+
     border:2px solid transparent;
+
+    transition:.25s;
+
 }
 
 .login-form input:focus{
+
     border-color:#3b82f6;
+
 }
 
-.login-btn{
-    width:100%;
-    height:58px;
-    border:none;
-    border-radius:14px;
-    background:#3b82f6;
-    color:white;
-    font-size:18px;
-    font-weight:600;
-    cursor:pointer;
-    transition:.3s;
-}
+/* ================= Password ================= */
 
-.login-btn:hover{
-    background:#2563eb;
-}
-
-.login-divider{
-    text-align:center;
-    margin:20px 0;
-    color:#94a3b8;
-}
-
-.cancel-btn{
-    width:100%;
-    height:56px;
-    background:transparent;
-    border:2px solid rgba(255,255,255,.1);
-    color:#fff;
-    border-radius:14px;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.cancel-btn:hover{
-    border-color:#3b82f6;
-    background:#1e293b;
-}
 .password-box{
 
     position:relative;
+
+    width:100%;
 
 }
 
 .password-box input{
 
     width:100%;
-    padding-right:70px;
+
+    height:56px;
+
+    padding:0 85px 0 18px;
 
 }
 
@@ -1475,24 +1497,107 @@ header{
     position:absolute;
 
     top:50%;
+
     right:18px;
 
     transform:translateY(-50%);
 
-    background:none;
     border:none;
 
-    color:#7fa8ff;
+    background:none;
+
+    color:#3b82f6;
+
+    font-size:14px;
+
+    font-weight:600;
 
     cursor:pointer;
 
-    font-size:14px;
-    font-weight:600;
+    padding:4px 6px;
+
+    z-index:999;
 
 }
 
 .toggle-password:hover{
 
-    color:white;
+    color:#ffffff;
+
+}
+
+/* ================= Login Button ================= */
+
+.login-btn{
+
+    width:100%;
+
+    height:56px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#3b82f6;
+
+    color:#ffffff;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.login-btn:hover{
+
+    background:#2563eb;
+
+}
+
+/* ================= Divider ================= */
+
+.login-divider{
+
+    text-align:center;
+
+    color:#94a3b8;
+
+    margin:20px 0;
+
+}
+
+/* ================= Cancel Button ================= */
+
+.cancel-btn{
+
+    width:100%;
+
+    height:54px;
+
+    border-radius:14px;
+
+    border:2px solid rgba(255,255,255,.10);
+
+    background:transparent;
+
+    color:#ffffff;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.cancel-btn:hover{
+
+    border-color:#3b82f6;
+
+    background:#1e293b;
 
 }
